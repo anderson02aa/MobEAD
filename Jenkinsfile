@@ -99,7 +99,7 @@ pipeline {
             echo "✅ Pipeline Anderson - Sucesso!"
         }
         failure {
-            echo "❌ Pipeline Anderson
+            echo "❌ Pipeline Anderson - Falha na execução"
   }
 
     }
