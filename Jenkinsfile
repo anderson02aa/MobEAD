@@ -39,7 +39,7 @@ pipeline {
         		script {
             			withSonarQubeEnv('SonarQube') {
                 			withEnv(['NODE_OPTIONS=--max-old-space-size=4096']) {
-                   				sh "${tool 'SonarQube_Scanner'}/bin/sonar-scanner"
+                   		           sh "${tool 'SonarQube_Scanner'}/bin/sonar-scanner"
                 }
             }
         }
