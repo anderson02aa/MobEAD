@@ -41,7 +41,7 @@ stage('SonarQube Analysis') {
         echo '📊 Pipeline Anderson - Análise de qualidade com SonarQube'
         script {
             withSonarQubeEnv('SonarQube') {
-                withEnv(['NODE_OPTIONS=--max-old-space-size=4096']) {
+                withEnv(['NODE_OPTIONS=--max-old-space-size=8192']) {
                     echo "🔧 DEBUG: Executando SonarQube Scanner..."
                     sh "${tool 'SonarQube_Scanner'}/bin/sonar-scanner"
                     echo "✅ DEBUG: SonarQube Scanner executado!"
