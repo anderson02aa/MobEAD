@@ -22,17 +22,17 @@ pipeline {
             }
         }
         
-#        stage('SonarQube Analysis') {
-#            steps {
-#                echo "📊 Pipeline Anderson - Análise de qualidade com SonarQube"
-#                script {
-#                    def scannerHome = tool 'SonarQube Scanner'
-#                    withSonarQubeEnv('SonarQube') {
-#                        sh "${scannerHome}/bin/sonar-scanner"
-#                    }
-#                }
-#            }
-#        }
+//#        stage('SonarQube Analysis') {
+//#            steps {
+//#                echo "📊 Pipeline Anderson - Análise de qualidade com SonarQube"
+//#                script {
+//#                    def scannerHome = tool 'SonarQube Scanner'
+//#                    withSonarQubeEnv('SonarQube') {
+//#                        sh "${scannerHome}/bin/sonar-scanner"
+//#                    }
+//#                }
+//#            }
+//#        }
 	stage('SonarQube Analysis') {
     		steps {
         		echo '📊 Pipeline Anderson - Análise de qualidade com SonarQube'
