@@ -22,17 +22,30 @@ pipeline {
             }
         }
         
-        stage('SonarQube Analysis') {
-            steps {
-                echo "📊 Pipeline Anderson - Análise de qualidade com SonarQube"
-                script {
-                    def scannerHome = tool 'SonarQube Scanner'
-                    withSonarQubeEnv('SonarQube') {
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
+#        stage('SonarQube Analysis') {
+#            steps {
+#                echo "📊 Pipeline Anderson - Análise de qualidade com SonarQube"
+#                script {
+#                    def scannerHome = tool 'SonarQube Scanner'
+#                    withSonarQubeEnv('SonarQube') {
+#                        sh "${scannerHome}/bin/sonar-scanner"
+#                    }
+#                }
+#            }
+#        }
+	stage('SonarQube Analysis') {
+    		steps {
+        		echo '📊 Pipeline Anderson - Análise de qualidade com SonarQube'
+        		script {
+            			withSonarQubeEnv('SonarQube') {
+                			withEnv(['NODE_OPTIONS=--max-old-space-size=4096']) {
+                   				sh "${tool 'SonarQube_Scanner'}/bin/sonar-scanner"
                 }
             }
         }
+    }
+}
+
         
         stage('Build Docker Image') {
             steps {
