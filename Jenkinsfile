@@ -73,7 +73,7 @@ stage('Build Docker Image') {
 
 
 
-        
+       /* 
         stage('Push to Registry') {
             steps {
                 echo "📤 Pipeline Anderson - Push para Docker Hub"
@@ -85,6 +85,7 @@ stage('Build Docker Image') {
                 }
             }
         }
+*/
         
         stage('Deploy to Development') {
             steps {
