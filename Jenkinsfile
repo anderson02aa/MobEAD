@@ -87,18 +87,33 @@ stage('Build Docker Image') {
         }
 */
         
-        stage('Deploy to Development') {
-            steps {
-                echo "🚀 Pipeline Anderson - Deploy em Desenvolvimento"
-                script {
-                    sh """
-                        docker stop mobead-dev || true
-                        docker rm mobead-dev || true
-                        docker run -d --name mobead-dev -p 8081:80 ${registry}:${BUILD_NUMBER}
-                    """
-                }
-            }
+ //       stage('Deploy to Development') {
+ //           steps {
+ //               echo "🚀 Pipeline Anderson - Deploy em Desenvolvimento"
+ //               script {
+ //                   sh """
+ //                       docker stop mobead-dev || true
+ //                       docker rm mobead-dev || true
+ //                       docker run -d --name mobead-dev -p 8081:80 ${registry}:${BUILD_NUMBER}
+ //                   """
+ //               }
+ //           }
+//        }
+
+stage('Deploy to Development') {
+    steps {
+        echo '🚀 Pipeline Anderson - Deploy em Desenvolvimento'
+        script {
+            sh "docker stop mobead-dev || true"
+            sh "docker rm mobead-dev || true"
+            sh "docker run -d --name mobead-dev -p 8081:80 mobeadead-app:${env.BUILD_NUMBER}"
+            echo "✅ Container mobead-dev iniciado com sucesso na porta 8081."
         }
+    }
+}
+
+
+
         
         stage('Approval for Production') {
             steps {
