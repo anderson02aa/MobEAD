@@ -53,14 +53,26 @@ stage('SonarQube Analysis') {
 
 
         
-        stage('Build Docker Image') {
-            steps {
-                echo "🏗️ Pipeline Anderson - Build da imagem Docker"
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
-            }
-        }
+//        stage('Build Docker Image') {
+//            steps {
+//                echo "🏗️ Pipeline Anderson - Build da imagem Docker"
+//                script {
+//                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+//                }
+//            }
+//        }
+
+
+stage('Build Docker Image') {
+    steps {
+        echo '🏗️ Pipeline Anderson - Build da imagem Docker'
+        sh "docker build -t mobeadead-app:${env.BUILD_NUMBER} ."
+        echo "✅ Imagem mobeadead-app:${env.BUILD_NUMBER} construída com sucesso."
+    }
+}
+
+
+
         
         stage('Push to Registry') {
             steps {
