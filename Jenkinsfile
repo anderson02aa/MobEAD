@@ -106,8 +106,8 @@ stage('Deploy to Development') {
         script {
             sh "docker stop mobead-dev || true"
             sh "docker rm mobead-dev || true"
-            sh "docker run -d --name mobead-dev -p 8081:80 mobeadead-app:${env.BUILD_NUMBER}"
-            echo "✅ Container mobead-dev iniciado com sucesso na porta 8081."
+            sh "docker run -d --name mobead-dev -p 8082:80 mobeadead-app:${env.BUILD_NUMBER}"
+            echo "✅ Container mobead-dev iniciado com sucesso na porta 8082."
         }
     }
 }
