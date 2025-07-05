@@ -33,6 +33,8 @@ pipeline {
 //#                }
 //#            }
 //#        }
+
+
 stage('SonarQube Analysis') {
     steps {
         echo '📊 Pipeline Anderson - Análise de qualidade com SonarQube'
@@ -45,6 +47,8 @@ stage('SonarQube Analysis') {
         }
     }
 }
+
+
 
         
         stage('Build Docker Image') {
